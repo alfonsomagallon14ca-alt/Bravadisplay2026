@@ -1,1 +1,969 @@
+/* =====================================================
+   VARIABLES
+===================================================== */
 
+:root {
+    --green: #0F2C23;
+    --green-light: #173C30;
+    --terracotta: #D73E29;
+    --cream: #F2EDE4;
+    --white: #FFFFFF;
+    --black: #111111;
+
+    --display: "Montserrat", "Arial Black", Arial, sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+
+    --page-padding: clamp(20px, 5vw, 80px);
+    --section-padding: clamp(70px, 10vw, 150px);
+
+    --radius: 2px;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--green);
+    font-family: var(--serif);
+    overflow-x: hidden;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: var(--green);
+    color: var(--cream);
+
+    border-bottom: 1px solid rgba(242, 237, 228, 0.15);
+}
+
+.navbar {
+    min-height: 70px;
+    padding: 0 var(--page-padding);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.nav-brand {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.nav-links {
+    display: flex;
+    gap: clamp(18px, 4vw, 50px);
+}
+
+.nav-links a {
+    font-family: var(--display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--cream);
+
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: calc(100vh - 70px);
+
+    background: var(--green);
+    color: var(--cream);
+
+    padding: var(--section-padding) var(--page-padding);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+}
+
+.hero-kicker,
+.eyebrow,
+.project-category {
+    font-family: var(--display);
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.hero-kicker {
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: var(--display);
+    font-size: clamp(3rem, 9vw, 9rem);
+    line-height: 0.85;
+    letter-spacing: -0.07em;
+    font-weight: 900;
+    max-width: 1100px;
+}
+
+.hero h1 span {
+    color: var(--terracotta);
+}
+
+.hero-logos {
+    margin-top: clamp(45px, 7vw, 80px);
+
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 4vw, 55px);
+}
+
+.hero-logos img {
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-meracho {
+    max-width: clamp(120px, 18vw, 240px);
+    max-height: 90px;
+}
+
+.logo-brava {
+    max-width: clamp(120px, 18vw, 240px);
+    max-height: 90px;
+}
+
+.logo-separator {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-weight: 900;
+    color: var(--terracotta);
+}
+
+.hero-number {
+    position: absolute;
+    right: var(--page-padding);
+    bottom: 35px;
+
+    font-family: var(--display);
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+
+    opacity: 0.08;
+}
+
+
+/* =====================================================
+   SHARED SECTIONS
+===================================================== */
+
+.section-number {
+    font-family: var(--display);
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 0.8;
+    font-weight: 900;
+    opacity: 0.12;
+}
+
+.dark-number {
+    color: var(--green);
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+    padding: var(--section-padding) var(--page-padding);
+
+    position: relative;
+}
+
+.section-dark {
+    background: var(--green);
+    color: var(--cream);
+}
+
+.about > .section-number {
+    position: absolute;
+    top: var(--section-padding);
+    right: var(--page-padding);
+}
+
+.about-grid {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1fr);
+    gap: clamp(40px, 8vw, 120px);
+
+    align-items: center;
+}
+
+.about-image {
+    overflow: hidden;
+}
+
+.about-image img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.about-content {
+    max-width: 650px;
+}
+
+.about-content .eyebrow {
+    margin-bottom: 20px;
+    color: var(--terracotta);
+}
+
+.about-content h2 {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    line-height: 0.88;
+    letter-spacing: -0.06em;
+    margin-bottom: 40px;
+}
+
+.bio {
+    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+    line-height: 1.6;
+    max-width: 620px;
+
+    margin-bottom: 20px;
+}
+
+.about-tag {
+    display: inline-block;
+
+    margin-top: 30px;
+    padding: 12px 15px;
+
+    border: 1px solid rgba(242, 237, 228, 0.3);
+
+    font-family: var(--display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+
+/* =====================================================
+   WORKS
+===================================================== */
+
+.works {
+    background: var(--cream);
+    color: var(--green);
+
+    padding: var(--section-padding) var(--page-padding);
+}
+
+.works-header {
+    max-width: 1400px;
+    margin: 0 auto var(--section-padding);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.works-header h2 {
+    font-family: var(--display);
+    font-size: clamp(4rem, 11vw, 11rem);
+    line-height: 0.8;
+    letter-spacing: -0.08em;
+    font-weight: 900;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.project {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    padding: var(--section-padding) 0;
+
+    border-top: 1px solid rgba(15, 44, 35, 0.25);
+}
+
+.project-heading {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 25px;
+
+    margin-bottom: 50px;
+}
+
+.project-number {
+    font-family: var(--display);
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 0.8;
+    opacity: 0.35;
+}
+
+.project-category {
+    margin-bottom: 12px;
+}
+
+.project h3 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+}
+
+
+/* =====================================================
+   IMAGE SYSTEM
+===================================================== */
+
+.image-box {
+    position: relative;
+    overflow: hidden;
+
+    background: var(--green-light);
+}
+
+.image-box img,
+.image-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.square {
+    aspect-ratio: 1 / 1;
+}
+
+.vertical {
+    aspect-ratio: 4 / 5;
+}
+
+.poster {
+    aspect-ratio: 4 / 5;
+}
+
+.mockup {
+    aspect-ratio: 2 / 3;
+}
+
+.process {
+    aspect-ratio: 9 / 16;
+}
+
+.alhada-image {
+    aspect-ratio: 5 / 4;
+}
+
+figcaption {
+    padding-top: 12px;
+
+    font-family: var(--display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   BEEFEST
+===================================================== */
+
+.sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(15px, 3vw, 40px);
+}
+
+
+/* =====================================================
+   TWO COLUMN PROJECTS
+===================================================== */
+
+.two-column-media {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(20px, 4vw, 60px);
+
+    align-items: start;
+}
+
+.two-column-media figure:first-child {
+    margin-top: 0;
+}
+
+.two-column-media figure:nth-child(2) {
+    margin-top: 10%;
+}
+
+
+/* =====================================================
+   TERRACOTTA PROJECT
+===================================================== */
+
+.project-terracotta {
+    background: var(--terracotta);
+    color: var(--cream);
+
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
+
+    max-width: none;
+}
+
+.project-terracotta .project-heading {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-terracotta .two-column-media {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.project-terracotta figcaption {
+    color: var(--cream);
+}
+
+
+/* =====================================================
+   BIENAL
+===================================================== */
+
+.single-poster {
+    max-width: 750px;
+    margin: auto;
+}
+
+.project-bienal .poster img {
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   WACOM
+===================================================== */
+
+.wacom-grid {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.project-wacom figure:nth-child(2) {
+    margin-top: 15%;
+}
+
+
+/* =====================================================
+   PORSCHE
+===================================================== */
+
+.porsche-grid {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.project-porsche figure:nth-child(2) {
+    margin-top: 20%;
+}
+
+.project-porsche .vertical img {
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   ALHADA
+===================================================== */
+
+.alhada-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(15px, 3vw, 40px);
+
+    align-items: start;
+}
+
+.alhada-grid figure:nth-child(2) {
+    margin-top: 12%;
+}
+
+.alhada-grid figure:nth-child(3) {
+    margin-top: 24%;
+}
+
+.alhada-final {
+    grid-column: span 1;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+    background: var(--green);
+    color: var(--cream);
+
+    padding: var(--section-padding) var(--page-padding);
+
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contact-top .eyebrow {
+    color: var(--terracotta);
+}
+
+.contact-main {
+    max-width: 1400px;
+    width: 100%;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    align-items: center;
+}
+
+.contact-logo img {
+    width: auto;
+    max-width: min(400px, 80%);
+    max-height: 180px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-info h2 {
+    font-family: var(--display);
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 0.8;
+    letter-spacing: -0.07em;
+
+    margin-bottom: 45px;
+}
+
+.contact-info a {
+    font-family: var(--display);
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    font-weight: 700;
+
+    margin-bottom: 14px;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.contact-info a:hover {
+    color: var(--terracotta);
+    border-color: var(--terracotta);
+}
+
+.contact-bottom {
+    max-width: 1400px;
+    width: 100%;
+
+    margin: auto auto 0;
+
+    padding-top: 40px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: var(--display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+
+    opacity: 0.5;
+}
+
+
+/* =====================================================
+   RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        min-height: 60px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.6rem;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        max-width: 600px;
+    }
+
+    .about-content {
+        max-width: 700px;
+    }
+
+    .about > .section-number {
+        position: static;
+        margin-bottom: 50px;
+    }
+
+    .project-heading {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .project-number {
+        font-size: 2rem;
+    }
+
+    .contact-main {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .contact-logo img {
+        max-width: 280px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    :root {
+        --page-padding: 18px;
+        --section-padding: 75px;
+    }
+
+
+    /* HEADER */
+
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    .nav-brand {
+        display: none;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.58rem;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: calc(100svh - 60px);
+    }
+
+    .hero h1 {
+        font-size: clamp(3.1rem, 15vw, 6rem);
+    }
+
+    .hero-logos {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .logo-meracho,
+    .logo-brava {
+        max-width: 110px;
+        max-height: 65px;
+    }
+
+    .logo-separator {
+        font-size: 1.5rem;
+    }
+
+
+    /* ABOUT */
+
+    .about-content h2 {
+        font-size: clamp(2.7rem, 13vw, 5rem);
+    }
+
+    .bio {
+        font-size: 1.05rem;
+        line-height: 1.55;
+    }
+
+
+    /* WORK HEADER */
+
+    .works-header {
+        align-items: flex-end;
+    }
+
+    .works-header h2 {
+        font-size: clamp(4rem, 20vw, 7rem);
+    }
+
+    .dark-number {
+        font-size: 3rem;
+    }
+
+
+    /* PROJECT HEADINGS */
+
+    .project-heading {
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+
+        margin-bottom: 30px;
+    }
+
+    .project-number {
+        font-size: 1.5rem;
+    }
+
+    .project h3 {
+        font-size: clamp(2rem, 11vw, 4rem);
+    }
+
+    .project-category {
+        font-size: 0.55rem;
+        line-height: 1.3;
+    }
+
+
+    /* BEEFEST */
+
+    .sticker-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .sticker-grid figure {
+        max-width: 500px;
+        margin: auto;
+    }
+
+
+    /* TWO COLUMN */
+
+    .two-column-media {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .two-column-media figure:nth-child(2) {
+        margin-top: 0;
+    }
+
+
+    /* POSTER */
+
+    .single-poster {
+        max-width: 100%;
+    }
+
+
+    /* WACOM */
+
+    .project-wacom .two-column-media {
+        max-width: 500px;
+    }
+
+    .project-wacom figure:nth-child(2) {
+        margin-top: 0;
+    }
+
+
+    /* PORSCHE */
+
+    .project-porsche .two-column-media {
+        max-width: 500px;
+    }
+
+    .project-porsche figure:nth-child(2) {
+        margin-top: 0;
+    }
+
+
+    /* ALHADA */
+
+    .alhada-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .alhada-grid figure:nth-child(2),
+    .alhada-grid figure:nth-child(3) {
+        margin-top: 0;
+    }
+
+    .alhada-grid figure {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* CONTACT */
+
+    .contact {
+        min-height: 75vh;
+    }
+
+    .contact-main {
+        gap: 60px;
+    }
+
+    .contact-info h2 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+        margin-bottom: 35px;
+    }
+
+    .contact-info a {
+        font-size: 1rem;
+    }
+
+    .contact-bottom {
+        flex-direction: column;
+        gap: 8px;
+
+        font-size: 0.55rem;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+
+}
